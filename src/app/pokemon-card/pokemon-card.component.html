@@ -1,0 +1,103 @@
+<div class="poke-card">
+  <div class="header">
+    <span class="name">{{ pokemon.name }}</span>
+    <span class="number">#{{ pokemon.id }}</span>
+  </div>
+
+  <app-pokemon-image
+    [image]="pokemon.img"
+    [showShadow]="true"
+	[styles]="{
+		width:'100px'
+	}"
+  ></app-pokemon-image>
+
+  <!-- <div class="background" [class]="pokemon.backgroundClass">
+    <div class="poke-img text-center">
+      <img [src]="pokemon.img.src" [alt]="pokemon.img.alt" class="img" />
+    </div>
+  </div> -->
+
+  <div class="poke-info">
+    <div class="">
+      <div class="accordion">
+        <!-- STATS -->
+        <div class="accordion-item">
+          <h4 class="accordion-header" [id]="'headingOne-' + pokemon.name">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              [attr.data-bs-target]="'#collapseOne-' + pokemon.name"
+            >
+              Stats
+            </button>
+          </h4>
+          <div
+            [id]="'collapseOne-' + pokemon.name"
+            class="accordion-collapse collapse"
+          >
+            <div class="accordion-body">
+              <ul>
+                <li *ngFor="let stat of pokemon.stats">
+                  {{ stat.label }}: {{ stat.value }}
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- END STATS -->
+
+        <!-- MOVES -->
+        <div class="accordion-item">
+          <h4 class="accordion-header" [id]="'headingTwo' + pokemon.name">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              [attr.data-bs-target]="'#collapseTwo-' + pokemon.name"
+            >
+              Moves
+            </button>
+          </h4>
+          <div
+            [id]="'collapseTwo-' + pokemon.name"
+            class="accordion-collapse collapse"
+          >
+            <div class="accordion-body p-0">
+              <ul>
+                <li *ngFor="let move of pokemon.moves">>> {{ move }}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- END MOVES -->
+
+        <!-- ABILITIES -->
+        <div class="accordion-item">
+          <h4 class="accordion-header" [id]="'headingThree-' + pokemon.name">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              [attr.data-bs-target]="'#collapseThree-' + pokemon.name"
+            >
+              Abilities
+            </button>
+          </h4>
+          <div
+            [id]="'collapseThree-' + pokemon.name"
+            class="accordion-collapse collapse"
+          >
+            <div class="accordion-body">
+              <ul>
+                <li *ngFor="let ability of pokemon.abilities">{{ ability }}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- END ABILITIES -->
+      </div>
+    </div>
+  </div>
+</div>

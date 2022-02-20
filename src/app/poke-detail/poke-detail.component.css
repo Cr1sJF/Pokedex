@@ -1,0 +1,11 @@
+.details{
+	display: flex;
+}
+
+.details .left-details{
+
+}
+
+.left-details .image{
+	height: 200px;
+}

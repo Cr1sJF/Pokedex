@@ -1,0 +1,66 @@
+.sprites {
+  display: flex;
+  flex-direction: column;
+}
+.sprites .active {
+  /* background-color: green; */
+  /* box-shadow: inset 100px 0 0 0 green; */
+  box-shadow: inset 1;
+}
+
+.sprites .sprites-container {
+  width: 250px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.sprites-container div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 45px;
+  height: 45px;
+  background-color: lightblue;
+  border: 1px solid;
+  box-shadow: inset 0 0 0 0 green;
+  -webkit-transition: all ease 0.8s;
+  -moz-transition: all ease 0.8s;
+  transition: all ease 0.8s;
+}
+
+.sprites-container img {
+  width: 40px;
+  height: 40px;
+}
+
+.sprites .sprites-navigation {
+  display: flex;
+  justify-content: center;
+}
+
+.sprites-navigation button {
+  width: 40px;
+  height: 40px;
+  margin-top: 15px;
+  font-size: 20px;
+  font-family: cursive;
+  padding: 0;
+}
+
+.sprites-container div:nth-child(1) {
+  border-top-left-radius: 5px;
+}
+
+.sprites-container div:nth-child(5) {
+  border-top-right-radius: 5px;
+}
+
+.sprites-container div:nth-child(6) {
+  border-bottom-left-radius: 5px;
+}
+
+.sprites-container div:nth-child(10) {
+  border-bottom-right-radius: 5px;
+}

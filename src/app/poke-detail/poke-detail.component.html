@@ -1,0 +1,22 @@
+<div class="container" *ngIf="pokemon && specie">
+  <div class="details">
+    <div class="left-details">
+      <div class="name">
+        <div># {{ pokemon.id }}</div>
+        <div>
+          <p>{{ pokemon.name }}</p>
+        </div>
+      </div>
+
+      <div class="image">
+        <app-pokemon-image [image]="currentImage" style="height: inherit; width: auto;"></app-pokemon-image>
+        <app-sprites-list
+          [sprites]="pokemon.sprites"
+          (sprite)="currentImage = $event"
+        ></app-sprites-list>
+      </div>
+    </div>
+
+    <div class="right-details"></div>
+  </div>
+</div>

@@ -1,0 +1,65 @@
+.poke-card{
+	min-height: 350px;
+	width: 250px;
+	border: 1px #000 solid;
+	background-color: white;
+	font-family: "poke-gb";
+	margin-top: 25px;
+	border-top-right-radius:5%;
+	border-top-left-radius: 5%;
+}
+
+/* HEADER */
+.poke-card .header{
+	display: flex;
+	justify-content: space-between;
+	margin:10px 0 10px 0px;
+	
+	/* background-color: red; */
+}
+
+.poke-card .header .name{
+	padding-left: 10px;
+}
+
+.poke-card .header .number{
+	padding-right: 10px;
+}
+
+/* END HEADER */
+
+
+/* BODY */
+
+/* BG TYPES */
+
+.background{
+	min-height: 150px;
+}
+
+/* POKE-IMG */
+
+.background .poke-img{
+	position: relative;
+	padding-top: 10%;	
+	
+}
+
+.background .poke-img .img{
+	width: 100px;
+	border: 3px solid #Fff;
+    border-radius: 50%;
+    padding: 10px;
+	background-color: rgba(255,255,255,0.3);
+}
+
+/* END BODY */
+
+/* INFO */
+
+.poke-info ul {
+	padding: 10px;
+	list-style: none;
+}
+
+/* END INFO */

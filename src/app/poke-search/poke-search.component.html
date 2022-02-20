@@ -1,0 +1,115 @@
+<div class="vertical-center">
+  <div class="pokedex-container">
+    <div class="pokedex pokedex-left-panel">
+      <header class="pokedex-header">
+        <input
+          type="text"
+          placeholder="Nombre o número"
+          [(ngModel)]="pokemonInput"
+          spellcheck="false"
+        />
+        <button (click)="performSearch()">GO!</button>
+      </header>
+
+      <content class="pokedex-screen">
+        <img *ngIf="showStatic" src="/assets/static.gif" alt="" />
+
+        <app-pokemon-image
+          *ngIf="!showStatic && currentPokemon"
+          [image]="showDetails ? sprite : currentPokemon.img"
+          [styles]="{
+            width: '250px',
+            height: '230px',
+            'border-radius': '5px',
+            border: '10px solid white'
+          }"
+        ></app-pokemon-image>
+
+        <app-console
+          [message]="screenMessage"
+          [consoleId]="'screenConsole'"
+        ></app-console>
+      </content>
+
+      <footer class="pokedex-footer">
+        <div>
+          <button class="btn btn-info"
+		  [disabled]="!currentPokemon"
+		  [routerLink]="['/pokemon',currentPokemon?.name]" title="Detalles">DET.</button>
+          <button
+            class="btn btn-primary"
+            title="Opciones"
+            [disabled]="!currentPokemon"
+            (click)="toggleDetails()"
+          >
+            OPT
+          </button>
+        </div>
+        <div class="arrows">
+          <button (click)="prevPokemon()">⬆</button>
+          <button (click)="nextPokemon()">⬇</button>
+        </div>
+      </footer>
+    </div>
+    <div
+      class="pokedex pokedex-right-panel-container"
+      [@childAnimation]="showDetails ? 'open' : 'closed'"
+      (@childAnimation.start)="toggleDisplayDetails($event)"
+      (@childAnimation.done)="toggleDisplayDetails($event)"
+    >
+      <div *ngIf="displayDetails" class="pokedex-right-panel">
+        <app-console
+          [message]="currentPokemon!.specie.fullDescription"
+          [title]="currentPokemon!.specie.fullDescription"
+          [consoleId]="'screen-info'"
+          [timeOut]="10"
+          [styles]="{
+            width: '220px',
+            height: '85px',
+            'border-radius': '5px',
+            'font-size': '8px',
+            'line-height': '8px',
+            padding: '5px',
+            'text-align': 'left'
+          }"
+        ></app-console>
+
+       <app-sprites-list
+		  [sprites]="currentPokemon!.sprites"
+		  (sprite)="selectedSprite($event)"
+	   ></app-sprites-list>
+
+	   <!-- <content class="sprites">
+		<div class="sprites-container">
+		  <div
+			*ngFor="let sprite of sprites"
+			[@activeSprite]="
+			  sprites[spriteIndex] == sprite ? 'active' : 'inactive'
+			"
+		  >
+			<img [src]="sprite.src" [alt]="sprite.alt" />
+		  </div>
+		</div>
+
+		<div class="sprites-navigation">
+		  <button (click)="prevSprite()"><</button>
+		  <button (click)="nextSprite()">></button>
+		</div>
+	  </content> -->
+
+        <footer>
+          <div class="default-pokemon">
+            <div>
+              <span>WEIGHT:</span>
+              <span>{{ currentPokemon!.weight }}</span>
+            </div>
+            <div>
+              <span>HEIGHT:</span>
+              <span>{{ currentPokemon!.height }}</span>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<content class="sprites">
+  <div class="sprites-container">
+    <div
+      *ngFor="let in of counter(); let i = index"
+      [@activeSprite]="i == spriteIndex ? 'active' : 'inactive'"
+    >
+      <img *ngIf="spritesToRender[i]" [src]="spritesToRender[i].src" [alt]="spritesToRender[i].alt" />
+    </div>
+  </div>
+
+  <div class="sprites-navigation">
+    <button (click)="prevSprite()"><</button>
+    <button (click)="nextSprite()">></button>
+  </div>
+</content>

@@ -1,0 +1,21 @@
+{
+	"MSG":{
+		"NO_RESULT": "Sin resultados.",
+		"SEARCHING": "Buscando..."
+	},
+	"CACHE":{
+		"POKEMON":"POKEMON",
+		"SPECIES":"SPECIES",
+		"ALL_POKEMON":"ALL_POKEMON",
+		"ALL_SPECIES":"ALL_SPECIES"
+	},
+
+	"KEY_CODES":{
+		"ENTER": "Enter",
+		"SPACE": "Space",
+		"ARROW_DOWN":"ArrowDown",
+		"ARROW_UP":"ArrowUp",
+		"ARROW_RIGHT":"ArrowRight",
+		"ARROW_LEFT":"ArrowLeft"
+	}
+}

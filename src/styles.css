@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+  background: url("./assets/pokebol-pokeball-sharik.jpg") no-repeat center
+    center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  /* height: 500px; */
+}
+
+@font-face {
+  font-family: poke;
+  src: url("./assets/fonts/Poke-Hollow.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: poke-solid;
+  src: url("./assets/fonts/Poke-Solid.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: poke-gb;
+  src: url("./assets/fonts/Poke-gb.ttf") format("truetype");
+}
