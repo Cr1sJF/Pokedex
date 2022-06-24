@@ -1,4 +1,4 @@
-import { image, pokeImage, sprites, type } from "src/common/interfaces";
+import { pokeImage, sprites, type } from "src/common/interfaces";
 
 export class MicroPokemon{
 	id: number = 0;

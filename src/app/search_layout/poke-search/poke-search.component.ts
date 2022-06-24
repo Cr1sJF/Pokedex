@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PokeApiService } from 'src/services/poke-api.service';
 import { MinPokemon } from 'src/models/min-pokemon.model';
-import CONST from "../../CONST.json";
+import CONST from "../../../CONST.json";
 import { pokeImage, pokemonServiceResponse } from 'src/common/interfaces';
 import { Router } from '@angular/router';
 
@@ -113,27 +113,30 @@ export class PokeSearchComponent implements OnInit {
 	}
 
 	async performSearch() {
-		this.searchResults = [];
-		this.imgSrc = COMPONENT_CONSTANTS.IMG.LOADING;
-		this.writeMsg(CONST.MSG.SEARCHING);
+		if(this.pokemonInput.length >=4){
 
-		let ids = this.pokeApi.getPokemonIds(this.pokemonInput);
-		let res: pokemonServiceResponse[] = await this.pokeApi.findPokemon(ids);
-
-		if (res.length > 0) {
-			this.showStatic = false;
-			res.forEach((pokemon: pokemonServiceResponse) => {
-				this.searchResults.push(new MinPokemon(pokemon.pokemon, pokemon.specie));
-			});
-
-			this.currentIndex = 0;
-			this.setCurrentPokemon(this.searchResults[this.currentIndex]);
-
-		} else {
 			this.searchResults = [];
-			this.imgSrc = COMPONENT_CONSTANTS.IMG.STATIC;
-			this.writeMsg(CONST.MSG.NO_RESULT);
-			this.showStatic = true;
+			this.imgSrc = COMPONENT_CONSTANTS.IMG.LOADING;
+			this.writeMsg(CONST.MSG.SEARCHING);
+	
+			let ids = this.pokeApi.getPokemonIds(this.pokemonInput);
+			let res: pokemonServiceResponse[] = await this.pokeApi.findPokemon(ids);
+	
+			if (res.length > 0) {
+				this.showStatic = false;
+				res.forEach((pokemon: pokemonServiceResponse) => {
+					this.searchResults.push(new MinPokemon(pokemon.pokemon, pokemon.specie));
+				});
+	
+				this.currentIndex = 0;
+				this.setCurrentPokemon(this.searchResults[this.currentIndex]);
+	
+			} else {
+				this.searchResults = [];
+				this.imgSrc = COMPONENT_CONSTANTS.IMG.STATIC;
+				this.writeMsg(CONST.MSG.NO_RESULT);
+				this.showStatic = true;
+			}
 		}
 	}
 

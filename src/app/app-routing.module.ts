@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {Routes, RouterModule} from '@angular/router';
-import { RandomListComponent } from './random-list/random-list.component';
-import { PokeDetailComponent } from './poke-detail/poke-detail.component';
-import { PokeSearchComponent } from './poke-search/poke-search.component';
+import { RandomListComponent } from './home_layout/random-list/random-list.component';
+import { PokeDetailComponent } from './details_layout/poke-detail/poke-detail.component';
+import { PokeSearchComponent } from './search_layout/poke-search/poke-search.component';
 
 const routes: Routes = [
 	{
